@@ -1,0 +1,1 @@
+Audio Samples from [_Automatonism_](https://www.automatonism.com/) which is a [PD Vanilla](https://puredata.info/) friendly modular synth, and both the name of the software and the creative output of its developer, [Johan Eriksson](https://www.automatonism.com/bio/). 
