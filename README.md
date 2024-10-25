@@ -5,7 +5,7 @@ ofxStringSoundPlayer
 
 This 'player' was made because I had over 500 sound files on a raspberry and couldn't load them all in memory.
 
-This addon is using `aplay` on Linux and `PlaySoundA` on Windows.
+This addon is using `aplay` on Linux and `mciSendString` on Windows.
 
 ### The Good
   - Lightweight  
