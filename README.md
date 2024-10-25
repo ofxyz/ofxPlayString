@@ -29,6 +29,3 @@ Play a sound by passing a string:
 
 See example.
 
-## Version History:
-
-**v1.0.0**: Finally an addon, need again.

@@ -4,7 +4,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofBackground(0, 0, 255);
-	ssp.setDataPath("data/audio/");
+	playString.setDataPath("data/audio/");
 }
 
 //--------------------------------------------------------------
@@ -17,7 +17,6 @@ void ofApp::draw(){
 	ofSetColor(255, 255, 255);
 	ofDrawBitmapString("Press any key to play a sound.", 25, 25);
 	ofDrawBitmapString("> or a number [0-9] to be more precise", 25, 50);
-
 }
 
 //--------------------------------------------------------------
@@ -25,37 +24,37 @@ void ofApp::keyPressed(int key){
 	switch (key)
 	{
 	case '0':
-		ssp.playFile("sample0.wav");
+		playString.play("sample0.wav");
 		break;
 	case '1':
-		ssp.playFile("sample1.wav");
+		playString.play("sample1.wav");
 		break;
 	case '2':
-		ssp.playFile("sample2.wav");
+		playString.play("sample2.wav");
 		break;
 	case '3':
-		ssp.playFile("sample3.wav");
+		playString.play("sample3.wav");
 		break;
 	case '4':
-		ssp.playFile("sample4.wav");
+		playString.play("sample4.wav");
 		break;
 	case '5':
-		ssp.playFile("sample5.wav");
+		playString.play("sample5.wav");
 		break;
 	case '6':
-		ssp.playFile("sample6.wav");
+		playString.play("sample6.wav");
 		break;
 	case '7':
-		ssp.playFile("sample7.wav");
+		playString.play("sample7.wav");
 		break;
 	case '8':
-		ssp.playFile("sample8.wav");
+		playString.play("sample8.wav");
 		break;
 	case '9':
-		ssp.playFile("sample9.wav");
+		playString.play("sample9.wav");
 		break;
 	default:
-		ssp.playFile("sample" + to_string((int)ofRandom(9)) + ".wav");
+		playString.play("sample" + to_string((int)ofRandom(9)) + ".wav");
 		break;
 	};
 }
