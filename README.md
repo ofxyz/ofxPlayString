@@ -25,7 +25,9 @@ This addon is using `aplay` on Linux and `mciSendString` on Windows.
 
 Play a sound by passing a string:
 
-    playFile("pathTo/Sound.wav"); 
+    ofxPlayString ps;
+
+    ps.play("pathTo/Sound.wav"); 
 
 See example.
 
