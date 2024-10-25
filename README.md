@@ -17,16 +17,14 @@ This addon is using `aplay` on Linux and `mciSendString` on Windows.
 ### The Bad
   - No playback controls  
   - Unknown latency (Not bad, for normal usage)  
-  - .aiff files are not supported on Linux  
+  - Not all sound formats supported.  
   - No MacOs support (Should be easy to add, send me a pull request!)  
   - Probably more, let me know.
 
-## How to Use
+### The Simple
 
-Play a sound by passing a string:
-
+    #include ofxPlayString
     ofxPlayString ps;
-
     ps.play("pathTo/Sound.wav"); 
 
 See example.
