@@ -15,11 +15,11 @@
 # and the PG will write to the console the kind of error and in which line it is
 
 meta:
-	ADDON_NAME = ofxStringSoundPlayer
+	ADDON_NAME = ofxPlayString
 	ADDON_DESCRIPTION = Play sounds without loading them...
 	ADDON_AUTHOR = @GitBruno
-	ADDON_TAGS = "Soundplayer"
-	ADDON_URL = http://github.com/ofxyz/ofxStringSoundPlayer
+	ADDON_TAGS = "Sound" "player"
+	ADDON_URL = http://github.com/ofxyz/ofxPlayString
 
 common:
 	# dependencies with other addons, a list of them separated by spaces 

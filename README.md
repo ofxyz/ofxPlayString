@@ -1,9 +1,9 @@
-ofxStringSoundPlayer
-====================
+ofxPlayString
+=============
 
 ![thumb](ofxaddons_thumbnail.png)
 
-This 'player' was made because I had over 500 sound files on a raspberry and couldn't load them all in memory.
+This addon was created because I had over 500 sound files on a raspberry and couldn't load them all in memory.
 
 This addon is using `aplay` on Linux and `mciSendString` on Windows.
 
