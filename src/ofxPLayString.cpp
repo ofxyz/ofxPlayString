@@ -1,11 +1,11 @@
 #include "ofxPlayString.h"
 
-ofxPLayString::ofxPLayString() : m_sDataPath("")
+ofxPlayString::ofxPlayString() : m_sDataPath("")
 {
 	m_vThreads.clear();
 }
 
-ofxPLayString::~ofxPLayString()
+ofxPlayString::~ofxPlayString()
 {
 	for (auto& thread : m_vThreads) {
 		delete thread;
@@ -13,13 +13,13 @@ ofxPLayString::~ofxPLayString()
 	m_vThreads.clear();
 }
 
-void ofxPLayString::play(const std::string filePath)
+void ofxPlayString::play(const std::string filePath)
 {
 	m_vThreads.push_back(new strPlayer(m_sDataPath + filePath));
 	update(); // Clears old threads
 }
 
-void ofxPLayString::update()
+void ofxPlayString::update()
 {
 	for (auto& player : m_vThreads) {
 		if (!player->isPlaying()) {
@@ -31,12 +31,12 @@ void ofxPLayString::update()
 		return player == nullptr; }), m_vThreads.end());
 }
 
-void ofxPLayString::setDataPath(std::string dataPath /*= "data/"*/)
+void ofxPlayString::setDataPath(std::string dataPath /*= "data/"*/)
 {
 	m_sDataPath = dataPath;
 }
 
-ofxPLayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(filePath), m_bPlaying(true)
+ofxPlayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(filePath), m_bPlaying(true)
 {
 	startThread();
 };
@@ -45,7 +45,7 @@ ofxPLayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(f
 #include <Windows.h>
 #include <mmsystem.h>
 
-void ofxPLayString::strPlayer::play(const std::string& filePath) {
+void ofxPlayString::strPlayer::play(const std::string& filePath) {
 	std::wstring wFilePath(filePath.begin(), filePath.end());
 	std::wstring command = L"open \"" + wFilePath + L"\"";
 	mciSendString(command.c_str(), NULL, 0, NULL);
@@ -53,7 +53,7 @@ void ofxPLayString::strPlayer::play(const std::string& filePath) {
 	mciSendString(command.c_str(), NULL, 0, NULL);
 }
 
-void ofxPLayString::strPlayer::stop(const std::string& filePath) {
+void ofxPlayString::strPlayer::stop(const std::string& filePath) {
 	std::wstring wFilePath(filePath.begin(), filePath.end());
 	std::wstring command = L"stop " + wFilePath;
 	mciSendString(command.c_str(), NULL, 0, NULL);
@@ -62,7 +62,7 @@ void ofxPLayString::strPlayer::stop(const std::string& filePath) {
 }
 #endif
 
-void ofxPLayString::strPlayer::threadedFunction()
+void ofxPlayString::strPlayer::threadedFunction()
 {
 #ifdef __linux__
 	std::string cmd = "aplay " + m_sFilePath + " & exit;";
@@ -76,5 +76,5 @@ void ofxPLayString::strPlayer::threadedFunction()
 	m_bPlaying = false;
 }
 
-bool ofxPLayString::strPlayer::isPlaying() { return m_bPlaying; }
+bool ofxPlayString::strPlayer::isPlaying() { return m_bPlaying; }
 

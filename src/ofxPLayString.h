@@ -4,10 +4,10 @@
 #include <vector>
 #include <string>
 
-class ofxPLayString {
+class ofxPlayString {
 public:
-    ofxPLayString();
-    ~ofxPLayString();
+    ofxPlayString();
+    ~ofxPlayString();
 
     void play(const std::string filePath);
     void update(); // Not really necessary
