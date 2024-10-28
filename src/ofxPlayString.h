@@ -14,6 +14,7 @@ public:
     // Also optional, so you do not have to give a full path
     // you would call this once in setup
     void setDataPath(const std::string path = "data/");
+    bool anyPlaying();
 
 private:
     class strPlayer : public ofThread {

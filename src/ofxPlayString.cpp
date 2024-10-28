@@ -36,6 +36,16 @@ void ofxPlayString::setDataPath(std::string dataPath /*= "data/"*/)
 	m_sDataPath = dataPath;
 }
 
+bool ofxPlayString::anyPlaying()
+{
+	for (auto& player : m_vThreads) {
+		if (player->isPlaying()) {
+			return true;
+		}
+	}
+	return false;
+}
+
 ofxPlayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(filePath), m_bPlaying(true)
 {
 	startThread();
@@ -64,11 +74,11 @@ void ofxPlayString::strPlayer::stop(const std::string& filePath) {
 
 void ofxPlayString::strPlayer::threadedFunction()
 {
+	// We are in a threaded function so prefer to exit when sound has completed playback
 #ifdef __linux__
-	std::string cmd = "aplay " + m_sFilePath + " & exit;";
+	std::string cmd = "aplay " + m_sFilePath;
 	ofSystem(cmd.c_str());
 #elif defined _WIN32
-	// PlaySoundA(m_sFilePath.c_str(), NULL, SND_FILENAME | SND_ASYNC | SND_NOSTOP);
 	play(m_sFilePath);
 #else // No Sound
 	ofLog() << "Unsupported sound playback on this platform." << std::end;
@@ -77,4 +87,3 @@ void ofxPlayString::strPlayer::threadedFunction()
 }
 
 bool ofxPlayString::strPlayer::isPlaying() { return m_bPlaying; }
-
