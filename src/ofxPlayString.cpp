@@ -1,4 +1,6 @@
 #include "ofxPlayString.h"
+#include "ofLog.h"
+#include <filesystem>
 
 ofxPlayString::ofxPlayString() : m_sDataPath("")
 {
@@ -46,7 +48,7 @@ bool ofxPlayString::anyPlaying()
 	return false;
 }
 
-ofxPlayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(filePath), m_bPlaying(true)
+ofxPlayString::strPlayer::strPlayer(std::string filePath) : m_sFilePath(filePath), m_bPlaying(true)
 {
 	startThread();
 };
@@ -55,7 +57,7 @@ ofxPlayString::strPlayer::strPlayer(const std::string& filePath) : m_sFilePath(f
 #include <Windows.h>
 #include <mmsystem.h>
 
-void ofxPlayString::strPlayer::play(const std::string& filePath) {
+void ofxPlayString::strPlayer::play(std::string filePath) {
 	std::wstring wFilePath(filePath.begin(), filePath.end());
 	std::wstring command = L"open \"" + wFilePath + L"\"";
 	mciSendString(command.c_str(), NULL, 0, NULL);
@@ -63,7 +65,7 @@ void ofxPlayString::strPlayer::play(const std::string& filePath) {
 	mciSendString(command.c_str(), NULL, 0, NULL);
 }
 
-void ofxPlayString::strPlayer::stop(const std::string& filePath) {
+void ofxPlayString::strPlayer::stop(std::string filePath) {
 	std::wstring wFilePath(filePath.begin(), filePath.end());
 	std::wstring command = L"stop " + wFilePath;
 	mciSendString(command.c_str(), NULL, 0, NULL);

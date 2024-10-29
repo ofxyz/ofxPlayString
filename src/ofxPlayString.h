@@ -13,16 +13,16 @@ public:
     void update(); // Not really necessary
     // Also optional, so you do not have to give a full path
     // you would call this once in setup
-    void setDataPath(const std::string path = "data/");
+    void setDataPath(std::string path = "data/");
     bool anyPlaying();
 
 private:
     class strPlayer : public ofThread {
     public:
-        strPlayer(const std::string& filePath);
+        strPlayer(std::string filePath);
 #ifdef _WIN32
-        void play(const std::string& filePath);
-        void stop(const std::string& filePath);
+        void play(std::string filePath);
+        void stop(std::string filePath);
 #endif
         void threadedFunction();
         bool isPlaying();
