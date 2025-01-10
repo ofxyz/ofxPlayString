@@ -13,19 +13,17 @@ This addon is using `aplay` on Linux and `mciSendString` on Windows.
   - Threaded Non-blocking playback  
   - Works on Windows and Linux  
   - Tested on Raspberry Pi  
+  - NEW! Added delay parameter for forward scheduling  
 
 ### The Bad
   - No playback controls  
-  - Unknown latency (Not bad, for normal usage)  
+  - Unknown latency (Actually not bad)  
   - Not all sound formats supported.  
   - No MacOs support (Should be easy to add, send me a pull request!)  
   - Probably more, let me know.
 
 ### The Simple
 
-    #include ofxPlayString
-    ofxPlayString ps;
-    ps.play("pathTo/Sound.wav"); 
+    stringPlayer.play("myFile.wav"); 
 
 See example.
-
