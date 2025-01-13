@@ -1,5 +1,6 @@
 #include "ofxPlayString.h"
 #include "ofLog.h"
+#include "ofSystemUtils.h"
 #include <filesystem>
 
 ofxPlayString::ofxPlayString() : m_sDataPath("")
