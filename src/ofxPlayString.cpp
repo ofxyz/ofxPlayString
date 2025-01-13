@@ -1,6 +1,5 @@
 #include "ofxPlayString.h"
 #include "ofLog.h"
-#include "ofSystemUtils.h"
 #include <filesystem>
 
 ofxPlayString::ofxPlayString() : m_sDataPath("")
@@ -87,7 +86,7 @@ void ofxPlayString::strPlayer::threadedFunction()
 // We are in a threaded function so prefer to exit when sound has completed playback
 #ifdef __linux__
     std::string cmd = "aplay " + m_sFilePath;
-    ofSystem(cmd.c_str());
+    std::system(cmd.c_str());
 #elif defined _WIN32
     play(m_sFilePath);
 #else // No Sound
